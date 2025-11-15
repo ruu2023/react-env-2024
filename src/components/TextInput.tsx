@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const TextInput = () => {
-    const [text, setText] = useState("")
+  const [text, setText] = useState('');
   return (
     <div>
-        <input type="text" value={text} onChange={(e) => setText(e.target.value)} aria-label='Text Input'/>
-        <p>Entered Text: {text}</p>
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        aria-label="Text Input"
+      />
+      <p>Entered Text: {text}</p>
     </div>
-  )
-}
+  );
+};
 
-export default TextInput
+export default TextInput;

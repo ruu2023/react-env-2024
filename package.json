@@ -10,7 +10,8 @@
     "lint:fix": "eslint src --fix",
     "preview": "vite preview",
     "test": "vitest watch",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "format": "prettier . --write"
   },
   "dependencies": {
     "react": "^19.2.0",
