@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test": "vitest watch",
     "coverage": "vitest run --coverage",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^19.2.0",
@@ -41,5 +42,8 @@
     "vite": "^7.2.2",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.0.9"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}" : ["prettire --write", "eslint --fix"]
   }
 }
