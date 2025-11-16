@@ -1,44 +1,49 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import React from 'react';
 import './App.css';
-import { Button } from './components/ui/button';
-import Summary from './components/Summary/Summary';
 
-const title = import.meta.env.VITE_APP_TITLE;
-console.dir(import.meta.env);
-
-function App() {
-  const [count, setCount] = useState(0);
-
+const App: React.FC = () => {
+  const musicList = [
+    {
+      id: 1,
+      title: 'Synthwave Dreams',
+      artist: 'AI Composer',
+      audioUrl:
+        'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3',
+      coverUrl:
+        'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop&crop=center',
+    },
+    {
+      id: 2,
+      title: 'Jazz Fusion',
+      artist: 'Neural Network',
+      audioUrl:
+        'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3',
+      coverUrl:
+        'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop&crop=center',
+    },
+    {
+      id: 3,
+      title: 'Ambient Spaces',
+      artist: 'Deep Learning',
+      audioUrl:
+        'https://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3',
+      coverUrl:
+        'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop&crop=center',
+    },
+  ];
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-3xl text-red-500">Hello</h1>
-      <p>{title}</p>
-      <div className="card">
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Summary title="Mapple town" folded>
-        <p>test</p>
-      </Summary>
-    </>
+    <div>
+      <h1>音楽一覧ページ</h1>
+      <ul>
+        {musicList.map((music) => (
+          <li key={music.id}>
+            <h3>{music.title}</h3>
+            <p>アーティスト{music.artist}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-}
+};
 
 export default App;
