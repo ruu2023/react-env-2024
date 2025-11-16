@@ -24,13 +24,11 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-      
     /* import alias */
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
-    
-  }
+    }
   },
   "include": ["src", "./vitest-setup.ts"]
 }

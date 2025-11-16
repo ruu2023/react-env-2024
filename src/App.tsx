@@ -3,6 +3,10 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import { Button } from './components/ui/button';
+import Summary from './components/Summary/Summary';
+
+const title = import.meta.env.VITE_APP_TITLE;
+console.dir(import.meta.env);
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,6 +22,7 @@ function App() {
         </a>
       </div>
       <h1 className="text-3xl text-red-500">Hello</h1>
+      <p>{title}</p>
       <div className="card">
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -29,6 +34,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Summary title="Mapple town" folded>
+        <p>test</p>
+      </Summary>
     </>
   );
 }
