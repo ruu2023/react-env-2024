@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 
 const App: React.FC = () => {
@@ -32,6 +31,20 @@ const App: React.FC = () => {
     },
   ];
 
+  // const [generatedMusic, setGeneratedMusic] = useState(() => {
+  // });
+  const generatedMusic: Music[] = JSON.parse(
+    localStorage.getItem('generatedMusic') || '[]',
+  );
+
+  type Music = {
+    id: number;
+    title: string;
+    artist: string;
+    audioUrl: string;
+    coverUrl: string;
+  };
+
   const playMusic = (audioUrl: string) => {
     const audio = new Audio(audioUrl);
     audio.play();
@@ -42,7 +55,27 @@ const App: React.FC = () => {
       <h1 className="text-2xl font-bold mb-6">音楽一覧ページ</h1>
       <section className="mb-8">
         <h2 className="text-xl font-bold mb-4">作成した音楽</h2>
-        <p>この後実装する</p>
+        <div className="flex gap-4">
+          {generatedMusic.map((music) => (
+            <div key={music.id} className="border p-4 rounded">
+              <img
+                src={music.coverUrl}
+                alt={music.title}
+                width="150"
+                height="150"
+                className="rounded mb-2"
+              />
+              <h3 className="font-bold">{music.title}</h3>
+              <p className="text-gray-600 text-sm">{music.artist}</p>
+              <button
+                onClick={() => playMusic(music.audioUrl)}
+                className="mt-2 bg-blue-500 text-white px-3 py-1 rounded"
+              >
+                再生
+              </button>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="mb-8">
