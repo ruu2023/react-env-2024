@@ -1,5 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import HomeIcon from '@mui/icons-material/Home';
 
 const CreatePage = () => {
   const [title, setTitle] = useState('');
@@ -111,6 +114,17 @@ const CreatePage = () => {
           <button onClick={() => handleSave()}>保存</button>
         </div>
       )}
+
+      {/* material ui */}
+      <div>
+        <Button variant="text">Text</Button>
+        <Button variant="contained">Contained</Button>
+        <Button variant="outlined">Outlined</Button>
+        <Typography variant="h1" mt={2}>
+          こんにちは
+        </Typography>
+        <HomeIcon />
+      </div>
     </div>
   );
 };
